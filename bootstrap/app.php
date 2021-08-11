@@ -95,6 +95,11 @@ $app->configure('app');
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
+if ($app->environment() !== 'production') {
+    $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+}
+$app->withEloquent(); //Para manejar bases de datos
+
 /*
 |--------------------------------------------------------------------------
 | Load The Application Routes
