@@ -15,7 +15,7 @@ class TiposPersonas extends Migration
     {
         Schema::create('tipos_personas', function (Blueprint $table) {
             $table->id();
-            $table->bolean('cod')->unique();
+            $table->integer('cod')->unique();
             $table->string('name');
             $table->timestamps();
         });
