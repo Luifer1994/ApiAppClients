@@ -16,6 +16,7 @@ class Paises extends Migration
         Schema::create('paises', function(Blueprint $table){
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
     }
 

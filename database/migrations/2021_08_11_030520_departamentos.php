@@ -17,6 +17,7 @@ class Departamentos extends Migration
             $table->id();
             $table->foreignId('id_pais')->constrained('paises');
             $table->string('name');
+            $table->timestamps();
         });
     }
 

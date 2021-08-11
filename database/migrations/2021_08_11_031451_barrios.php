@@ -19,6 +19,7 @@ class Barrios extends Migration
             $table->foreignId('id_departamento')->constrained('departamentos');
             $table->foreignId('id_ciudades')->constrained('ciudades');
             $table->string('name');
+            $table->timestamps();
         });
     }
 
