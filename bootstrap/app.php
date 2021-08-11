@@ -90,6 +90,10 @@ $app->configure('app');
 | totally optional, so you are not required to uncomment this line.
 |
 */
+if ($app->environment() !== 'production') {
+    $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+  }
+  $app->withEloquent(); //Para manejar bases de datos
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
