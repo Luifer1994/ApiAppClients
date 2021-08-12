@@ -15,13 +15,27 @@ class Clientes extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->text('profile_photo_path')->nullable();
+            $table->char('sede_creacion',3);
+            $table->char('cod_tipo_documento',2);
+            $table->integer('numero_documento');
+            $table->smallInteger('cod_tipo_persona');
+            $table->string('nombres',40);
+            $table->string('primer_apellido',30);
+            $table->string('segundo_apellido',30);
+            $table->string('razon_social',100);
+            $table->string('contacto',50);
+            $table->smallInteger('genero');
+            $table->char('pais',3);
+            $table->char('departamento',2);
+            $table->char('municipio',3);
+            $table->string('barrio',40);
+            $table->string('direccion',40);
+            $table->date('fecha_nacimiento');
+            $table->string('email');
+            $table->string('celular',20);
+            $table->string('telefono',20);
+            $table->smallInteger('acepto_politicas');
+            $table->smallInteger('estado')->default(1);
             $table->timestamps();
         });
     }
