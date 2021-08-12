@@ -27,3 +27,11 @@ $router->get('paises', [
 $router->post('paises/store', [
     'as' => 'paises/store', 'uses' => 'PaisesController@store'
 ]);
+
+$router->get('departamentos', [
+    'as' => 'departamentos', 'uses' => 'DepartamentosController@index'
+]);
+
+$router->post('departamentos/store', [
+    'as' => 'departamentos/store', 'uses' => 'DepartamentosController@store'
+]);

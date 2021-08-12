@@ -43,7 +43,9 @@ class PaisesController extends Controller
         $this->validate($request, [
             'name' => 'required',
         ]);
+
         $res = Paises::create($request->all());
+        
         if ($res) {
             return response()->json([
                 'res' => true,
