@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Paises;
 
 class PaisesController extends Controller
 {
@@ -13,7 +14,12 @@ class PaisesController extends Controller
      */
     public function index()
     {
-        //
+        $paises = Paises::all();
+        return response()->json([
+            'res' => true,
+            'message'=> 'Ok',
+            'data' => $paises
+        ],200);
     }
 
     /**
@@ -23,7 +29,7 @@ class PaisesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +40,22 @@ class PaisesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+        $res = Paises::create($request->all());
+        if ($res) {
+            return response()->json([
+                'res' => true,
+                'message'=> 'Ok',
+                'data' => $res
+            ],200);
+        } else {
+            return response()->json([
+                'res' => false,
+                'message'=> 'Error al guardar'
+            ],400);
+        }
     }
 
     /**

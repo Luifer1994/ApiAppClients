@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\PaisesController;
+use Illuminate\Support\Facades\Route;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
@@ -16,3 +18,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+//$router->get('/paises', ['PaisesController@index']);
+
+$router->get('paises', [
+    'as' => 'paises', 'uses' => 'PaisesController@index'
+]);
+$router->post('paises/store', [
+    'as' => 'paises/store', 'uses' => 'PaisesController@store'
+]);
